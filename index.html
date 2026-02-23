@@ -21,6 +21,7 @@
       font-size: 15px;
       line-height: 1.5;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
@@ -29,8 +30,10 @@
     }
 
     .logo-bbs {
-      display: inline-block;
-      text-align: left;
+      display: block;
+      max-width: 70ch;
+      margin: 0 auto;
+      overflow: hidden;
     }
 
     .logo-art {
@@ -49,13 +52,26 @@
       font-family: 'Share Tech Mono', monospace;
       font-size: clamp(0.4rem, 1.85vw, 0.85rem);
       color: #5a5b5c;
-      white-space: pre;
+      white-space: nowrap;
       letter-spacing: 0;
-      display: block;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-sub .rule-line,
+    .logo-border .rule-line {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .logo-sub .rule-line:first-child,
+    .logo-border .rule-line:first-child {
+      text-align: right;
     }
 
     .content {
       padding: 1rem 2rem 3rem;
+      overflow: hidden;
     }
 
     .body-text {
@@ -65,12 +81,21 @@
     }
 
     .body-text .rule {
+      display: flex;
+      align-items: center;
       color: #5a5b5c;
-      overflow: hidden;
-      white-space: nowrap;
       margin: 1.5rem 0;
-      text-align: center;
       font-size: clamp(0.4rem, 1.85vw, 0.85rem);
+      white-space: nowrap;
+    }
+
+    .body-text .rule .rule-line {
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .body-text .rule .rule-line:first-child {
+      text-align: right;
     }
 
     .body-text .section-label {
@@ -85,25 +110,44 @@
     .body-text .footer-info {
       color: #898a8b;
       line-height: 2;
+      font-size: 2em;
     }
 
     .dim    { color: #898a8b; }
     .bright { color: #eaebec; }
     .rule   { color: #5a5b5c; }
+
+    @media (max-width: 600px) {
+      .logo-border,
+      .logo-sub,
+      .body-text .rule {
+        font-size: 0.85rem;
+      }
+
+      header {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      .body-text .rule {
+        margin-left: calc(-2rem + 5px);
+        margin-right: calc(-2rem + 5px);
+      }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="logo-bbs">
-    <span class="logo-sub">═════════════════════════════[ WILLSTONEBERG ]═════════════════════════════</span>
+    <span class="logo-sub"><span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span>[ WILLSTONEBERG.COM ]<span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span></span>
 <pre class="logo-art">  _    _ _____ _      _      _____ _____ _____ _   _  ___________ ___________ _____
  | |  | |_   _| |    | |    /  ___|_   _|  _  | \ | ||  ___| ___ \  ___| ___ \  __ \
  | |  | | | | | |    | |    \ `--.  | | | | | |  \| || |__ | |_/ / |__ | |_/ / |  \/
  | |/\| | | | | |    | |     `--. \ | | | | | | . ` ||  __|| ___ \  __||    /| | __
  \  /\  /_| |_| |____| |____/\__/ / | | \ \_/ / |\  || |___| |_/ / |___| |\ \| |_\ \
   \/  \/ \___/\_____/\_____/\____/  \_/  \___/\_| \_/\____/\____/\____/\_| \_|\____/</pre>
-    <span class="logo-border">═══════════════════════════════[ * ABOUT * ]═══════════════════════════════</span>
+    <span class="logo-border"><span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span>[ * ABOUT * ]<span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span></span>
   </div>
 </header>
 
@@ -124,13 +168,13 @@
 
     <p>I'm building SaaS products, enjoying life, and documenting it here as I go. Not constantly, not for show, just honestly.</p>
 
-    <div class="rule">══════════════════════════════════════════════════[ * CONTACT * ]══════════════════════════════════════════════════</div>
+    <div class="rule"><span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span>[ * CONTACT * ]<span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span></div>
 
     <div class="footer-info">
      <a href="https://x.com/willstoneberg" style="color:inherit">x.com/willstoneberg</a>
     </div>
 
-    <div class="rule">══════════════════════════════════════════════════[ * END  * ]══════════════════════════════════════════════════</div>
+    <div class="rule"><span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span>[ * END  * ]<span class="rule-line">════════════════════════════════════════════════════════════════════════════════════════════════════════</span></div>
 
   </div>
 </div>
